@@ -190,4 +190,4 @@ Projet universitaire - À des fins éducatives uniquement.
 
 ---
 
-**Développé avec ❤️ par Faycal Edderi pour IPSSI**
+**Développé par Mouad Aoughane et Faycal Edderi pour IPSSI**
