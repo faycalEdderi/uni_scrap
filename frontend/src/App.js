@@ -34,17 +34,45 @@ function App() {
 
   const loadAvailableFandoms = async () => {
     try {
-      // Simuler le chargement des fandoms depuis les fichiers JSON
-      const mockFandoms = [
+      // Essayer de charger la liste des fandoms depuis les fichiers réels
+      const availableFandoms = [];
+      
+      // Liste des fandoms potentiels à vérifier
+      const potentialFandoms = [
         { id: 'leagueoflegends', name: 'League of Legends', url: 'https://leagueoflegends.fandom.com/' },
-        { id: 'starwars', name: 'Star Wars', url: 'https://starwars.fandom.com/' },
-        { id: 'pokemon', name: 'Pokemon', url: 'https://pokemon.fandom.com/' },
-        { id: 'harrypotter', name: 'Harry Potter', url: 'https://harrypotter.fandom.com/' },
-        { id: 'overwatch', name: 'Overwatch', url: 'https://overwatch.fandom.com/' },
+        // { id: 'starwars', name: 'Star Wars', url: 'https://starwars.fandom.com/' },
+        // { id: 'pokemon', name: 'Pokemon', url: 'https://pokemon.fandom.com/' },
+        // { id: 'harrypotter', name: 'Harry Potter', url: 'https://harrypotter.fandom.com/' },
+        // { id: 'overwatch', name: 'Overwatch', url: 'https://overwatch.fandom.com/' },
+        // { id: 'onepiece', name: 'One Piece', url: 'https://onepiece.fandom.com/' },
+        // { id: 'naruto', name: 'Naruto', url: 'https://naruto.fandom.com/' },
+        // { id: 'minecraft', name: 'Minecraft', url: 'https://minecraft.fandom.com/' },
+        // { id: 'zelda', name: 'The Legend of Zelda', url: 'https://zelda.fandom.com/' },
+        // { id: 'genshinimpact', name: 'Genshin Impact', url: 'https://genshinimpact.fandom.com/' },
       ];
-      setFandoms(mockFandoms);
+      
+      // Vérifier quels fichiers existent réellement
+      for (const fandom of potentialFandoms) {
+        try {
+          const response = await fetch(`/data/${fandom.id}_latest.json`, { method: 'HEAD' });
+          if (response.ok) {
+            availableFandoms.push(fandom);
+          }
+        } catch (error) {
+          // Fichier n'existe pas, on continue
+          console.log(`Fichier ${fandom.id}_latest.json non trouvé`);
+        }
+      }
+      
+      setFandoms(availableFandoms);
+      
+      if (availableFandoms.length === 0) {
+        console.log("Aucun fandom scraped trouvé. Scrapez d'abord des données !");
+      }
+      
     } catch (error) {
       console.error('Erreur lors du chargement des fandoms:', error);
+      setFandoms([]); // Pas de fallback mock
     }
   };
 
@@ -57,58 +85,18 @@ function App() {
         const data = await response.json();
         setCharacters(data);
         setSelectedFandom(fandoms.find(f => f.id === fandomId));
+        console.log(`Données chargées pour ${fandomId}:`, data.length, 'personnages');
       } else {
-        // Données de démonstration si le fichier n'existe pas
-        const mockData = generateMockCharacters(fandomId);
-        setCharacters(mockData);
+        console.error(`Fichier ${fandomId}_latest.json non trouvé`);
+        setCharacters([]);
         setSelectedFandom(fandoms.find(f => f.id === fandomId));
       }
     } catch (error) {
       console.error('Erreur lors du chargement des personnages:', error);
-      // Fallback avec des données de démonstration
-      const mockData = generateMockCharacters(fandomId);
-      setCharacters(mockData);
+      setCharacters([]);
       setSelectedFandom(fandoms.find(f => f.id === fandomId));
     }
     setLoading(false);
-  };
-
-  const generateMockCharacters = (fandomId) => {
-    const mockCharacters = {
-      leagueoflegends: [
-        {
-          name: "Ahri",
-          image_url: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ahri_0.jpg",
-          description: "Ahri est une gumiho, une renarde à neuf queues capable de manipuler l'essence spirituelle.",
-          character_type: "Mage Assassin",
-          attribute_1: "Région: Ionia",
-          attribute_2: "Rôle: Mid Lane",
-          fandom_name: "League of Legends"
-        },
-        {
-          name: "Yasuo",
-          image_url: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Yasuo_0.jpg",
-          description: "Yasuo est un guerrier ionien intransigeant et agile qui manie le pouvoir du vent.",
-          character_type: "Fighter Assassin",
-          attribute_1: "Région: Ionia",
-          attribute_2: "Rôle: Mid/Top Lane",
-          fandom_name: "League of Legends"
-        }
-      ],
-      starwars: [
-        {
-          name: "Luke Skywalker",
-          image_url: "https://upload.wikimedia.org/wikipedia/en/9/9b/Luke_Skywalker.png",
-          description: "Luke Skywalker est un Jedi qui a aidé à vaincre l'Empire Galactique.",
-          character_type: "Jedi Knight",
-          attribute_1: "Affiliation: Alliance Rebelle",
-          attribute_2: "Planète: Tatooine",
-          fandom_name: "Star Wars"
-        }
-      ]
-    };
-    
-    return mockCharacters[fandomId] || [];
   };
 
   return (

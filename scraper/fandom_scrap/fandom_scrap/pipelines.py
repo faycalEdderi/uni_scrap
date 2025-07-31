@@ -15,8 +15,9 @@ class JsonWriterPipeline:
         self.items = []
     
     def open_spider(self, spider):
-        # Créer le dossier data s'il n'existe pas
+        # Créer les dossiers s'ils n'existent pas
         os.makedirs('../data', exist_ok=True)
+        os.makedirs('../../frontend/public/data', exist_ok=True)
         
         # Nom du fichier basé sur le fandom et timestamp
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
@@ -25,14 +26,23 @@ class JsonWriterPipeline:
         spider.logger.info(f"Saving items to {filename}")
     
     def close_spider(self, spider):
-        # Sauvegarder tous les items
+        # Sauvegarder tous les items dans le dossier data principal
         json.dump(self.items, self.items_file, indent=2, ensure_ascii=False)
         self.items_file.close()
         
-        # Créer aussi un fichier "latest" pour le frontend
+        # Créer le fichier "latest" pour le scraper
         latest_filename = f"../data/{spider.fandom_name}_latest.json"
         with open(latest_filename, 'w', encoding='utf-8') as f:
             json.dump(self.items, f, indent=2, ensure_ascii=False)
+        
+        # NOUVEAU : Copier aussi dans le frontend pour accès direct
+        frontend_filename = f"../../frontend/public/data/{spider.fandom_name}_latest.json"
+        try:
+            with open(frontend_filename, 'w', encoding='utf-8') as f:
+                json.dump(self.items, f, indent=2, ensure_ascii=False)
+            spider.logger.info(f"Data also saved to frontend: {frontend_filename}")
+        except Exception as e:
+            spider.logger.warning(f"Could not save to frontend: {e}")
     
     def process_item(self, item, spider):
         # Valider que l'item a au minimum les champs obligatoires

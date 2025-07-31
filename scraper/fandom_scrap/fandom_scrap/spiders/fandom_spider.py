@@ -191,20 +191,30 @@ class FandomSpider(scrapy.Spider):
         """Extrait le nom du personnage"""
         selectors = [
             'h1.page-header__title::text',
-            'h1.title::text',
+            'h1.title::text', 
             'h1#firstHeading::text',
             'h1.mw-page-title-main::text',
             '.page-title::text',
             'h1::text',
+            '#content h1::text',
+            '.mw-parser-output h1::text',
         ]
         
         for selector in selectors:
             name = response.css(selector).get()
-            if name:
+            if name and name.strip():
                 return name.strip()
         
         # Fallback: extraire depuis l'URL
-        return response.url.split('/')[-1].replace('_', ' ')
+        url_name = response.url.split('/')[-1].replace('_', ' ')
+        # Nettoyer les paramètres URL
+        if '?' in url_name:
+            url_name = url_name.split('?')[0]
+        if '#' in url_name:
+            url_name = url_name.split('#')[0]
+        # Décoder l'URL
+        from urllib.parse import unquote
+        return unquote(url_name)
     
     def extract_main_image(self, response):
         """Extrait l'URL de l'image principale (OBLIGATOIRE)"""
