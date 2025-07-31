@@ -48,11 +48,13 @@ frontend/.pnp*
 # --------------------------------------------------------------------------------
 scraper/fandom_scrap/fandom_scrap/logs/
 scraper/fandom_scrap/fandom_scrap/output/
-*.json
-*.csv
-*.xml
-# Évite d'ignorer tous les .json partout, mais si tu exportes des données ici :
-# → précise les dossiers ou utilise un pattern spécifique
+# Exclure les fichiers de données temporaires mais garder les exemples
+data/*_20*.json
+data/*_temp*.json
+data/temp_*
+# Garder les fichiers d'exemple et latest
+!data/*_latest.json
+!data/example_*.json
 
 # --------------------------------------------------------------------------------
 # Autres

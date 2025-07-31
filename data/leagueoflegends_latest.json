@@ -1,0 +1,67 @@
+[
+  {
+    "name": "Ahri",
+    "image_url": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ahri_0.jpg",
+    "description": "Ahri est une gumiho, une renarde à neuf queues capable de manipuler l'essence spirituelle, qu'elle peut utiliser pour remodeler la magie brute en sphères d'énergie pure. Elle chasse les proies inconscientes dans les forêts d'Ionia, mais a commencé à résister à ses instincts prédateurs au profit d'une vie d'empathie entre les mortels.",
+    "character_type": "Mage",
+    "attribute_1": "Région: Ionia",
+    "attribute_2": "Position: Voie du milieu",
+    "fandom_url": "https://leagueoflegends.fandom.com/",
+    "fandom_name": "League of Legends",
+    "page_url": "https://leagueoflegends.fandom.com/wiki/Ahri",
+    "scraped_at": "2025-01-31T10:30:00",
+    "additional_images": [
+      "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ahri_1.jpg",
+      "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ahri_2.jpg"
+    ],
+    "categories": ["Champions", "Mages", "Ionia"],
+    "infobox_data": {
+      "health": "526 (+92)",
+      "mana": "418 (+25)",
+      "attack_damage": "53 (+3)",
+      "range": "550"
+    }
+  },
+  {
+    "name": "Yasuo",
+    "image_url": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Yasuo_0.jpg",
+    "description": "Yasuo est un guerrier ionien intransigeant et agile qui manie le pouvoir du vent. Autrefois l'élève fier d'une école d'épée réputée, il fut accusé d'avoir assassiné son maître et contraint de lutter pour sa survie.",
+    "character_type": "Combattant",
+    "attribute_1": "Région: Ionia",
+    "attribute_2": "Position: Voie du milieu/Voie du haut",
+    "fandom_url": "https://leagueoflegends.fandom.com/",
+    "fandom_name": "League of Legends",
+    "page_url": "https://leagueoflegends.fandom.com/wiki/Yasuo",
+    "scraped_at": "2025-01-31T10:31:00",
+    "additional_images": [
+      "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Yasuo_1.jpg"
+    ],
+    "categories": ["Champions", "Combattants", "Ionia"],
+    "infobox_data": {
+      "health": "490 (+87)",
+      "mana": "Flux",
+      "attack_damage": "60 (+3.2)",
+      "range": "175"
+    }
+  },
+  {
+    "name": "Jinx",
+    "image_url": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Jinx_0.jpg",
+    "description": "Jinx, la criminelle impulsive et maniaque de Zaun, vit pour semer le chaos sans aucune considération pour les conséquences. Avec un arsenal d'armes mortelles, elle déclenche les explosions les plus bruyantes et les plus vives possibles pour laisser sa marque.",
+    "character_type": "Tireur",
+    "attribute_1": "Région: Zaun",
+    "attribute_2": "Position: Voie du bas",
+    "fandom_url": "https://leagueoflegends.fandom.com/",
+    "fandom_name": "League of Legends",
+    "page_url": "https://leagueoflegends.fandom.com/wiki/Jinx",
+    "scraped_at": "2025-01-31T10:32:00",
+    "additional_images": [],
+    "categories": ["Champions", "Tireurs", "Zaun"],
+    "infobox_data": {
+      "health": "610 (+86)",
+      "mana": "245 (+45)",
+      "attack_damage": "59 (+2.9)",
+      "range": "525"
+    }
+  }
+]
