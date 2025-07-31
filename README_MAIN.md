@@ -284,7 +284,6 @@ npm start
 ## 📄 Licence
 
 Projet universitaire - IPSSI 2025
-Auteur : Faycal Edderi
 
 ---
 

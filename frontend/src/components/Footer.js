@@ -68,7 +68,7 @@ const Footer = () => {
           </FooterLink>
         </FooterLinks>
         <Copyright>
-          © 2025 Fandom Explorer - Projet universitaire par Faycal Edderi
+          © 2025 Fandom Explorer - Projet universitaire par Faycal Edderi - Aoughane Mouad
         </Copyright>
       </FooterContent>
     </FooterContainer>
