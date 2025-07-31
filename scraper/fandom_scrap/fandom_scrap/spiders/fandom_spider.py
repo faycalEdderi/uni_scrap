@@ -30,6 +30,7 @@ class FandomSpider(scrapy.Spider):
         self.start_urls = [
             f"{self.fandom_url}/wiki/Special:AllPages",
             f"{self.fandom_url}/wiki/Category:Characters",
+            f"{self.fandom_url}/wiki/Category:Individuals", # Harry Potter style
             f"{self.fandom_url}/wiki/Category:Character",
             f"{self.fandom_url}/wiki/Category:People",
             f"{self.fandom_url}/wiki/Category:Heroes",
