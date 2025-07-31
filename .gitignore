@@ -49,10 +49,7 @@ frontend/.pnp*
 scraper/fandom_scrap/fandom_scrap/logs/
 scraper/fandom_scrap/fandom_scrap/output/
 # Ignorer tous les fichiers JSON dans tous les dossiers data
-**/data/*.json
 scraper/data/*.json
-frontend/public/data/*.json
-data/*.json
 
 # --------------------------------------------------------------------------------
 # Autres

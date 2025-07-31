@@ -1,0 +1,92 @@
+[
+  {
+    "fandom_url": "https://starwars.fandom.com",
+    "fandom_name": "starwars",
+    "page_url": "https://starwars.fandom.com/wiki/Hellhulk",
+    "scraped_at": "2025-07-31T14:13:07.039461",
+    "name": "Hellhulk",
+    "image_url": "https://static.wikia.nocookie.net/starwars/images/a/aa/ChthonicWormGod-2016DoctorAphra16.png",
+    "description": "",
+    "character_type": "Character stubs",
+    "infobox_data": {
+      "died": "c.",
+      "species": "It/its",
+      "pronouns": "It/its"
+    },
+    "attribute_1": "",
+    "attribute_2": "",
+    "categories": [
+      "Categories",
+      "Canon articles",
+      "Articles that are known by a nickname",
+      "Character stubs",
+      "Individuals",
+      "Individuals of unspecified gender",
+      "Individuals with it/its pronouns",
+      "Skako Minor residents"
+    ],
+    "additional_images": []
+  },
+  {
+    "fandom_url": "https://starwars.fandom.com",
+    "fandom_name": "starwars",
+    "page_url": "https://starwars.fandom.com/wiki/Dejarik%27s_inventor",
+    "scraped_at": "2025-07-31T14:13:19.875337",
+    "name": "Dejarik's inventor",
+    "image_url": "https://static.wikia.nocookie.net/starwars/images/1/1b/Dejarik.png",
+    "description": "",
+    "character_type": "Character",
+    "infobox_data": {},
+    "attribute_1": "",
+    "attribute_2": "",
+    "categories": [
+      "Categories",
+      "Canon articles",
+      "Articles with conjectural titles",
+      "Individuals"
+    ],
+    "additional_images": []
+  },
+  {
+    "fandom_url": "https://starwars.fandom.com",
+    "fandom_name": "starwars",
+    "page_url": "https://starwars.fandom.com/wiki/DRN-38",
+    "scraped_at": "2025-07-31T14:13:32.981585",
+    "name": "DRN-38",
+    "image_url": "https://static.wikia.nocookie.net/starwars/images/4/46/Itchy-ambush.png",
+    "description": "",
+    "character_type": "Character",
+    "infobox_data": {},
+    "attribute_1": "",
+    "attribute_2": "",
+    "categories": [
+      "Categories",
+      "Legends articles",
+      "Wookieepedia Good articles",
+      "Individuals",
+      "Trade Federation military members"
+    ],
+    "additional_images": []
+  },
+  {
+    "fandom_url": "https://starwars.fandom.com",
+    "fandom_name": "starwars",
+    "page_url": "https://starwars.fandom.com/wiki/Atsuko",
+    "scraped_at": "2025-07-31T14:13:38.255026",
+    "name": "Atsuko",
+    "image_url": "https://static.wikia.nocookie.net/starwars/images/7/73/Atsuko.jpg",
+    "description": "",
+    "character_type": "Character stubs",
+    "infobox_data": {},
+    "attribute_1": "",
+    "attribute_2": "",
+    "categories": [
+      "Categories",
+      "Non-canon articles",
+      "LEGO content",
+      "Character stubs",
+      "Individuals"
+    ],
+    "additional_images": []
+  }
+]

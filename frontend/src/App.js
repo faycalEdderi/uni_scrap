@@ -40,15 +40,11 @@ function App() {
       // Liste des fandoms potentiels à vérifier
       const potentialFandoms = [
         { id: 'leagueoflegends', name: 'League of Legends', url: 'https://leagueoflegends.fandom.com/' },
-        // { id: 'starwars', name: 'Star Wars', url: 'https://starwars.fandom.com/' },
-        // { id: 'pokemon', name: 'Pokemon', url: 'https://pokemon.fandom.com/' },
+        { id: 'starwars', name: 'Star Wars', url: 'https://starwars.fandom.com/' },
+        { id: 'pokemon', name: 'Pokemon', url: 'https://pokemon.fandom.com/' },
         { id: 'harrypotter', name: 'Harry Potter', url: 'https://harrypotter.fandom.com/' },
-        // { id: 'overwatch', name: 'Overwatch', url: 'https://overwatch.fandom.com/' },
-        // { id: 'onepiece', name: 'One Piece', url: 'https://onepiece.fandom.com/' },
-        // { id: 'naruto', name: 'Naruto', url: 'https://naruto.fandom.com/' },
-        // { id: 'minecraft', name: 'Minecraft', url: 'https://minecraft.fandom.com/' },
-        // { id: 'zelda', name: 'The Legend of Zelda', url: 'https://zelda.fandom.com/' },
-        // { id: 'genshinimpact', name: 'Genshin Impact', url: 'https://genshinimpact.fandom.com/' },
+        { id: 'overwatch', name: 'Overwatch', url: 'https://overwatch.fandom.com/' },
+        { id: 'onepiece', name: 'One Piece', url: 'https://onepiece.fandom.com/' },
       ];
       
       // Vérifier quels fichiers existent réellement
