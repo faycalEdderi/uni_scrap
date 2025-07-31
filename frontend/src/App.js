@@ -29,7 +29,20 @@ function App() {
 
   // Charger la liste des fandoms disponibles
   useEffect(() => {
+    console.log('🔄 App.js mounted - Loading fandoms...');
     loadAvailableFandoms();
+  }, []);
+
+  // DEBUG: Fonction temporaire pour forcer le refresh
+  useEffect(() => {
+    window.debugReloadFandoms = () => {
+      console.log('🔧 DEBUG: Force reload fandoms');
+      loadAvailableFandoms();
+    };
+    
+    return () => {
+      delete window.debugReloadFandoms;
+    };
   }, []);
 
   const loadAvailableFandoms = async () => {
@@ -40,19 +53,15 @@ function App() {
       if (response.ok) {
         const availableFandoms = await response.json();
         setFandoms(availableFandoms);
-        console.log(`${availableFandoms.length} fandoms chargés dynamiquement:`, availableFandoms.map(f => f.name));
+        console.log(`✅ ${availableFandoms.length} fandoms chargés dynamiquement:`, availableFandoms.map(f => f.name));
       } else {
-        console.error('Erreur lors de la récupération des fandoms depuis l\'API');
+        console.error('❌ Erreur lors de la récupération des fandoms depuis l\'API');
         setFandoms([]);
       }
       
-      if (fandoms.length === 0) {
-        console.log("Aucun fandom scrapé trouvé. Utilisez la barre de recherche pour scraper votre premier fandom !");
-      }
-      
     } catch (error) {
-      console.error('Erreur lors du chargement des fandoms:', error);
-      console.log('Tentative de fallback avec vérification locale...');
+      console.error('❌ Erreur lors du chargement des fandoms:', error);
+      console.log('🔄 Tentative de fallback avec vérification locale...');
       
       // Fallback : vérifier les fichiers localement comme avant
       await loadFandomsFromLocalFiles();
@@ -63,7 +72,7 @@ function App() {
   const loadFandomsFromLocalFiles = async () => {
     const availableFandoms = [];
     
-    // Liste de base pour le fallback
+    // Liste de base pour le fallback (tous les fandoms possibles)
     const knownFandoms = [
       { id: 'leagueoflegends', name: 'League of Legends', url: 'https://leagueoflegends.fandom.com/' },
       { id: 'starwars', name: 'Star Wars', url: 'https://starwars.fandom.com/' },
@@ -72,21 +81,31 @@ function App() {
       { id: 'overwatch', name: 'Overwatch', url: 'https://overwatch.fandom.com/' },
       { id: 'onepiece', name: 'One Piece', url: 'https://onepiece.fandom.com/' },
       { id: 'witcher', name: 'Witcher', url: 'https://witcher.fandom.com/' },
+      { id: 'godofwar', name: 'God of War', url: 'https://godofwar.fandom.com/' },
+      { id: 'naruto', name: 'Naruto', url: 'https://naruto.fandom.com/' },
+      { id: 'attackontitan', name: 'Attack on Titan', url: 'https://attackontitan.fandom.com/' },
+      { id: 'dragonball', name: 'Dragon Ball', url: 'https://dragonball.fandom.com/' },
+      { id: 'marvel', name: 'Marvel', url: 'https://marvel.fandom.com/' },
+      { id: 'dc', name: 'DC Comics', url: 'https://dc.fandom.com/' }
     ];
     
-    // Vérifier quels fichiers existent réellement
+    // ✅ VÉRIFICATION DYNAMIQUE : N'afficher QUE les fandoms dont le fichier JSON existe réellement
     for (const fandom of knownFandoms) {
       try {
         const response = await fetch(`/data/${fandom.id}_latest.json`, { method: 'HEAD' });
         if (response.ok) {
           availableFandoms.push(fandom);
+          console.log(`✅ Fichier trouvé: ${fandom.id}_latest.json`);
+        } else {
+          console.log(`❌ Fichier manquant: ${fandom.id}_latest.json (masqué de la liste)`);
         }
       } catch (error) {
-        console.log(`Fichier ${fandom.id}_latest.json non trouvé`);
+        console.log(`❌ Erreur de vérification pour ${fandom.id}_latest.json:`, error.message);
       }
     }
     
     setFandoms(availableFandoms);
+    console.log(`📋 Fallback: ${availableFandoms.length} fandoms disponibles localement`);
   };
 
   const loadCharactersFromFandom = async (fandomId) => {

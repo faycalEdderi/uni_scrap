@@ -246,9 +246,23 @@ const HomePage = ({ fandoms, onSelectFandom, onFandomsUpdate }) => {
           transition={{ duration: 0.8, delay: 0.6 }}
           style={{ width: '100%', maxWidth: '1000px' }}
         >
-          <h2 style={{ color: 'white', textAlign: 'center', marginBottom: '2rem' }}>
-            📚 Ou explorez les fandoms déjà scrapés
-          </h2>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
+            <h2 style={{ color: 'white', margin: 0 }}>
+              📚 Ou explorez les fandoms déjà scrapés ({fandoms.length})
+            </h2>
+            <Button
+              onClick={() => {
+                if (onFandomsUpdate) {
+                  onFandomsUpdate();
+                  toast.success('Liste des fandoms rafraîchie !');
+                }
+              }}
+              whileTap={{ scale: 0.95 }}
+              style={{ padding: '0.5rem 1rem', fontSize: '0.9rem' }}
+            >
+              🔄 Rafraîchir
+            </Button>
+          </div>
           <FandomGrid>
             {fandoms.map((fandom, index) => (
               <FandomCard

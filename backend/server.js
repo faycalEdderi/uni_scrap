@@ -135,13 +135,22 @@ app.get('/api/health', (req, res) => {
 // Route pour lister les fandoms disponibles
 app.get('/api/fandoms', (req, res) => {
   try {
-    const dataPath = path.join(__dirname, '..', 'scraper', 'data');
-    const files = fs.readdirSync(dataPath);
+    // ✅ VÉRIFICATION UNIQUE : Lire seulement le dossier frontend/public/data
+    const frontendDataPath = path.join(__dirname, '..', 'frontend', 'public', 'data');
+    
+    if (!fs.existsSync(frontendDataPath)) {
+      console.log(`📁 Dossier frontend/public/data n'existe pas encore`);
+      res.json([]);
+      return;
+    }
+    
+    const files = fs.readdirSync(frontendDataPath);
     
     const fandoms = files
       .filter(file => file.endsWith('_latest.json'))
       .map(file => {
         const fandomId = file.replace('_latest.json', '');
+        console.log(`✅ ${fandomId}: Disponible dans frontend/public/data`);
         return {
           id: fandomId,
           name: formatFandomName(fandomId),
@@ -151,10 +160,10 @@ app.get('/api/fandoms', (req, res) => {
       })
       .sort((a, b) => a.name.localeCompare(b.name)); // Trier alphabétiquement
 
-    console.log(`📋 ${fandoms.length} fandoms trouvés:`, fandoms.map(f => f.name).join(', '));
+    console.log(`📋 ${fandoms.length} fandoms disponibles dans frontend:`, fandoms.map(f => f.name).join(', '));
     res.json(fandoms);
   } catch (error) {
-    console.error('Erreur lors de la lecture des fandoms:', error);
+    console.error('❌ Erreur lors de la lecture des fandoms:', error);
     res.json([]);
   }
 });
