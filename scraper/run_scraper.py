@@ -48,16 +48,16 @@ def main():
         cmd.extend(['-a', f'max_pages={args.max_pages}'])
     
     # Lancer le scraper
-    print(f"🚀 Démarrage du scraping de {args.fandom_url}")
+    print(f"[INFO] Demarrage du scraping de {args.fandom_url}")
     if args.max_pages:
-        print(f"📊 Limite: {args.max_pages} pages")
+        print(f"[INFO] Limite: {args.max_pages} pages")
     
     try:
         # Changer vers le dossier du projet Scrapy
         os.chdir('fandom_scrap')
         
         result = subprocess.run(cmd, check=True)
-        print("✅ Scraping terminé avec succès!")
+        print("[SUCCESS] Scraping termine avec succes!")
         
     except subprocess.CalledProcessError as e:
         print(f"Erreur lors du scraping: {e}")

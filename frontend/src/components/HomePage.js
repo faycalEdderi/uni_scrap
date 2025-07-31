@@ -148,15 +148,41 @@ const HomePage = ({ fandoms, onSelectFandom }) => {
     }
 
     setIsScrapingMode(true);
-    toast.loading('Démarrage du scraping...', { duration: 3000 });
+    const loadingToast = toast.loading('Démarrage du scraping...', { duration: 0 });
     
-    // Simuler le lancement du scraping
-    setTimeout(() => {
-      toast.success('Scraping terminé ! Redirection vers les résultats...');
-      setTimeout(() => {
-        navigate('/explore');
-      }, 1000);
-    }, 3000);
+    try {
+      const response = await fetch('http://localhost:3001/api/scrape', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          fandomUrl: fandomUrl,
+          maxPages: 50 // Limitation par défaut
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast.dismiss(loadingToast);
+        toast.success(`Scraping terminé ! ${result.fandomName} ajouté avec succès.`);
+        
+        // Recharger la page pour voir le nouveau fandom
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
+      } else {
+        toast.dismiss(loadingToast);
+        toast.error(`Erreur lors du scraping: ${result.error}`);
+        setIsScrapingMode(false);
+      }
+    } catch (error) {
+      toast.dismiss(loadingToast);
+      console.error('Erreur lors de la communication avec le backend:', error);
+      toast.error('Erreur de connexion au serveur. Assurez-vous que le backend est démarré.');
+      setIsScrapingMode(false);
+    }
   };
 
   const handleFandomSelect = (fandom) => {

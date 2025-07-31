@@ -45,6 +45,10 @@ function App() {
         { id: 'harrypotter', name: 'Harry Potter', url: 'https://harrypotter.fandom.com/' },
         { id: 'overwatch', name: 'Overwatch', url: 'https://overwatch.fandom.com/' },
         { id: 'onepiece', name: 'One Piece', url: 'https://onepiece.fandom.com/' },
+        { id: 'witcher', name: 'Witcher', url: 'https://thewitcher.fandom.com/' },
+        { id: 'godofwar', name: 'God of War', url: 'https://godofwar.fandom.com/' },
+
+
       ];
       
       // Vérifier quels fichiers existent réellement

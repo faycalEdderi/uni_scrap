@@ -57,3 +57,16 @@ scraper/data/*.json
 .DS_Store
 *.sublime-project
 *.sublime-workspace
+
+# --------------------------------------------------------------------------------
+# Backend Node.js
+# --------------------------------------------------------------------------------
+backend/node_modules/
+backend/build/
+backend/.env
+backend/.env.local
+backend/npm-debug.log*
+backend/yarn-debug.log*
+backend/yarn-error.log*
+backend/.yarn
+backend/.pnp*
