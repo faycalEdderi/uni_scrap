@@ -34,46 +34,59 @@ function App() {
 
   const loadAvailableFandoms = async () => {
     try {
-      // Essayer de charger la liste des fandoms depuis les fichiers réels
-      const availableFandoms = [];
+      // Récupérer la liste dynamique des fandoms depuis l'API backend
+      const response = await fetch('http://localhost:3001/api/fandoms');
       
-      // Liste des fandoms potentiels à vérifier
-      const potentialFandoms = [
-        { id: 'leagueoflegends', name: 'League of Legends', url: 'https://leagueoflegends.fandom.com/' },
-        { id: 'starwars', name: 'Star Wars', url: 'https://starwars.fandom.com/' },
-        { id: 'pokemon', name: 'Pokemon', url: 'https://pokemon.fandom.com/' },
-        { id: 'harrypotter', name: 'Harry Potter', url: 'https://harrypotter.fandom.com/' },
-        { id: 'overwatch', name: 'Overwatch', url: 'https://overwatch.fandom.com/' },
-        { id: 'onepiece', name: 'One Piece', url: 'https://onepiece.fandom.com/' },
-        { id: 'witcher', name: 'Witcher', url: 'https://thewitcher.fandom.com/' },
-        { id: 'godofwar', name: 'God of War', url: 'https://godofwar.fandom.com/' },
-
-
-      ];
-      
-      // Vérifier quels fichiers existent réellement
-      for (const fandom of potentialFandoms) {
-        try {
-          const response = await fetch(`/data/${fandom.id}_latest.json`, { method: 'HEAD' });
-          if (response.ok) {
-            availableFandoms.push(fandom);
-          }
-        } catch (error) {
-          // Fichier n'existe pas, on continue
-          console.log(`Fichier ${fandom.id}_latest.json non trouvé`);
-        }
+      if (response.ok) {
+        const availableFandoms = await response.json();
+        setFandoms(availableFandoms);
+        console.log(`${availableFandoms.length} fandoms chargés dynamiquement:`, availableFandoms.map(f => f.name));
+      } else {
+        console.error('Erreur lors de la récupération des fandoms depuis l\'API');
+        setFandoms([]);
       }
       
-      setFandoms(availableFandoms);
-      
-      if (availableFandoms.length === 0) {
-        console.log("Aucun fandom scraped trouvé. Scrapez d'abord des données !");
+      if (fandoms.length === 0) {
+        console.log("Aucun fandom scrapé trouvé. Utilisez la barre de recherche pour scraper votre premier fandom !");
       }
       
     } catch (error) {
       console.error('Erreur lors du chargement des fandoms:', error);
-      setFandoms([]); // Pas de fallback mock
+      console.log('Tentative de fallback avec vérification locale...');
+      
+      // Fallback : vérifier les fichiers localement comme avant
+      await loadFandomsFromLocalFiles();
     }
+  };
+
+  // Fonction fallback pour vérifier les fichiers localement
+  const loadFandomsFromLocalFiles = async () => {
+    const availableFandoms = [];
+    
+    // Liste de base pour le fallback
+    const knownFandoms = [
+      { id: 'leagueoflegends', name: 'League of Legends', url: 'https://leagueoflegends.fandom.com/' },
+      { id: 'starwars', name: 'Star Wars', url: 'https://starwars.fandom.com/' },
+      { id: 'pokemon', name: 'Pokemon', url: 'https://pokemon.fandom.com/' },
+      { id: 'harrypotter', name: 'Harry Potter', url: 'https://harrypotter.fandom.com/' },
+      { id: 'overwatch', name: 'Overwatch', url: 'https://overwatch.fandom.com/' },
+      { id: 'onepiece', name: 'One Piece', url: 'https://onepiece.fandom.com/' },
+      { id: 'witcher', name: 'Witcher', url: 'https://witcher.fandom.com/' },
+    ];
+    
+    // Vérifier quels fichiers existent réellement
+    for (const fandom of knownFandoms) {
+      try {
+        const response = await fetch(`/data/${fandom.id}_latest.json`, { method: 'HEAD' });
+        if (response.ok) {
+          availableFandoms.push(fandom);
+        }
+      } catch (error) {
+        console.log(`Fichier ${fandom.id}_latest.json non trouvé`);
+      }
+    }
+    
+    setFandoms(availableFandoms);
   };
 
   const loadCharactersFromFandom = async (fandomId) => {
@@ -111,6 +124,7 @@ function App() {
                 <HomePage 
                   fandoms={fandoms}
                   onSelectFandom={loadCharactersFromFandom}
+                  onFandomsUpdate={loadAvailableFandoms}
                 />
               } 
             />

@@ -131,7 +131,7 @@ const FandomUrl = styled.p`
   word-break: break-all;
 `;
 
-const HomePage = ({ fandoms, onSelectFandom }) => {
+const HomePage = ({ fandoms, onSelectFandom, onFandomsUpdate }) => {
   const [fandomUrl, setFandomUrl] = useState('');
   const [isScrapingMode, setIsScrapingMode] = useState(false);
   const navigate = useNavigate();
@@ -168,10 +168,15 @@ const HomePage = ({ fandoms, onSelectFandom }) => {
         toast.dismiss(loadingToast);
         toast.success(`Scraping terminé ! ${result.fandomName} ajouté avec succès.`);
         
-        // Recharger la page pour voir le nouveau fandom
+        // Recharger automatiquement la liste des fandoms
         setTimeout(() => {
-          window.location.reload();
-        }, 2000);
+          if (onFandomsUpdate) {
+            onFandomsUpdate();
+            toast.success('Liste des fandoms mise à jour !');
+          }
+        }, 1000);
+        
+        setIsScrapingMode(false);
       } else {
         toast.dismiss(loadingToast);
         toast.error(`Erreur lors du scraping: ${result.error}`);

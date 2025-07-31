@@ -66,6 +66,28 @@ app.post('/api/scrape', async (req, res) => {
         // Extraire le nom du fandom de l'URL
         const fandomName = extractFandomName(fandomUrl);
         
+        // Copier le fichier JSON vers le frontend
+        try {
+          const sourceFile = path.join(__dirname, '..', 'scraper', 'data', `${fandomName}_latest.json`);
+          const destFile = path.join(__dirname, '..', 'frontend', 'public', 'data', `${fandomName}_latest.json`);
+          
+          // Créer le dossier de destination s'il n'existe pas
+          const destDir = path.dirname(destFile);
+          if (!fs.existsSync(destDir)) {
+            fs.mkdirSync(destDir, { recursive: true });
+          }
+          
+          // Copier le fichier
+          if (fs.existsSync(sourceFile)) {
+            fs.copyFileSync(sourceFile, destFile);
+            console.log(`📋 Fichier copié vers le frontend: ${fandomName}_latest.json`);
+          } else {
+            console.warn(`⚠️ Fichier source non trouvé: ${sourceFile}`);
+          }
+        } catch (copyError) {
+          console.error('❌ Erreur lors de la copie du fichier:', copyError);
+        }
+        
         res.json({
           success: true,
           message: 'Scraping terminé avec succès!',
@@ -123,10 +145,13 @@ app.get('/api/fandoms', (req, res) => {
         return {
           id: fandomId,
           name: formatFandomName(fandomId),
+          url: generateFandomUrl(fandomId),
           dataFile: file
         };
-      });
+      })
+      .sort((a, b) => a.name.localeCompare(b.name)); // Trier alphabétiquement
 
+    console.log(`📋 ${fandoms.length} fandoms trouvés:`, fandoms.map(f => f.name).join(', '));
     res.json(fandoms);
   } catch (error) {
     console.error('Erreur lors de la lecture des fandoms:', error);
@@ -152,10 +177,37 @@ function formatFandomName(fandomId) {
     'harrypotter': 'Harry Potter',
     'overwatch': 'Overwatch',
     'onepiece': 'One Piece',
-    'naruto': 'Naruto'
+    'naruto': 'Naruto',
+    'witcher': 'Witcher',
+    'godofwar': 'God of War',
+    'attackontitan': 'Attack on Titan',
+    'dragonball': 'Dragon Ball',
+    'marvel': 'Marvel',
+    'dc': 'DC Comics'
   };
   
   return nameMap[fandomId] || fandomId.charAt(0).toUpperCase() + fandomId.slice(1);
+}
+
+function generateFandomUrl(fandomId) {
+  // Générer l'URL probable du fandom
+  const urlMap = {
+    'leagueoflegends': 'https://leagueoflegends.fandom.com/',
+    'starwars': 'https://starwars.fandom.com/',
+    'pokemon': 'https://pokemon.fandom.com/',
+    'harrypotter': 'https://harrypotter.fandom.com/',
+    'overwatch': 'https://overwatch.fandom.com/',
+    'onepiece': 'https://onepiece.fandom.com/',
+    'naruto': 'https://naruto.fandom.com/',
+    'witcher': 'https://witcher.fandom.com/',
+    'godofwar': 'https://godofwar.fandom.com/',
+    'attackontitan': 'https://attackontitan.fandom.com/',
+    'dragonball': 'https://dragonball.fandom.com/',
+    'marvel': 'https://marvel.fandom.com/',
+    'dc': 'https://dc.fandom.com/'
+  };
+  
+  return urlMap[fandomId] || `https://${fandomId}.fandom.com/`;
 }
 
 app.listen(PORT, () => {
