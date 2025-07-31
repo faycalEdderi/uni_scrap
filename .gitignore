@@ -48,13 +48,11 @@ frontend/.pnp*
 # --------------------------------------------------------------------------------
 scraper/fandom_scrap/fandom_scrap/logs/
 scraper/fandom_scrap/fandom_scrap/output/
-# Exclure les fichiers de données temporaires mais garder les exemples
-data/*_20*.json
-data/*_temp*.json
-data/temp_*
-# Garder les fichiers d'exemple et latest
-!data/*_latest.json
-!data/example_*.json
+# Ignorer tous les fichiers JSON dans tous les dossiers data
+**/data/*.json
+scraper/data/*.json
+frontend/public/data/*.json
+data/*.json
 
 # --------------------------------------------------------------------------------
 # Autres
