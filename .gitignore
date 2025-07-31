@@ -1,0 +1,62 @@
+# --------------------------------------------------------------------------------
+# Fichiers système et éditeurs
+# --------------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+*.log
+.DS_Store?
+
+# --------------------------------------------------------------------------------
+# Environnements virtuels Python (scraper)
+# --------------------------------------------------------------------------------
+scraper/venv/
+scraper/venv*/
+scraper/env/
+scraper/env*/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+.coverage
+htmlcov/
+
+# --------------------------------------------------------------------------------
+# Projet React (frontend)
+# --------------------------------------------------------------------------------
+frontend/node_modules/
+frontend/build/
+frontend/.DS_Store
+frontend/.env.local
+frontend/.env
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+frontend/.yarn
+frontend/.pnp*
+
+# --------------------------------------------------------------------------------
+# Fichiers de configuration Scrapy (si tu génères des outputs)
+# --------------------------------------------------------------------------------
+scraper/fandom_scrap/fandom_scrap/logs/
+scraper/fandom_scrap/fandom_scrap/output/
+*.json
+*.csv
+*.xml
+# Évite d'ignorer tous les .json partout, mais si tu exportes des données ici :
+# → précise les dossiers ou utilise un pattern spécifique
+
+# --------------------------------------------------------------------------------
+# Autres
+# --------------------------------------------------------------------------------
+.DS_Store
+*.sublime-project
+*.sublime-workspace
