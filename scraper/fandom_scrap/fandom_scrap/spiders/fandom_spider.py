@@ -2,6 +2,8 @@ import scrapy
 import re
 import json
 import logging
+import random
+import os
 from datetime import datetime
 from urllib.parse import urljoin, urlparse
 from fandom_scrap.items import FandomCharacterItem
@@ -26,19 +28,72 @@ class FandomSpider(scrapy.Spider):
         parsed_url = urlparse(fandom_url)
         self.fandom_name = parsed_url.hostname.split('.')[0] if parsed_url.hostname else "unknown"
         
-        # URLs de départ pour trouver les listes de pages
-        self.start_urls = [
+        self.start_urls = self.generate_random_category_urls()
+    
+    def load_categories_from_file(self):
+        """Charge les catégories depuis le fichier fandom_categories.txt"""
+        categories = []
+        categories_file = os.path.join(os.path.dirname(__file__), '..', '..', 'fandom_categories.txt')
+        
+        try:
+            with open(categories_file, 'r', encoding='utf-8') as f:
+                for line in f:
+                    line = line.strip()
+                    if line and not line.startswith('#'):
+                        categories.append(line)
+        except FileNotFoundError:
+            self.logger.warning(f"Categories file not found: {categories_file}")
+            categories = [
+                'Characters', 'Character', 'People', 'Individuals', 'Heroes', 'Villains',
+                'Champions', 'Pokemon', 'Jedi', 'Pirates', 'Ninjas', 'Wizards'
+            ]
+        
+        self.logger.info(f"Loaded {len(categories)} categories from file")
+        return categories
+    
+    def generate_random_category_urls(self, num_urls=50):
+        """Génère des URLs de catégories aléatoires"""
+        categories = self.load_categories_from_file()
+        
+        if self.max_pages:
+            if self.max_pages <= 10:
+                num_urls = 20 
+            elif self.max_pages <= 50:
+                num_urls = 40
+            else:
+                num_urls = 60
+        
+        base_urls = [
             f"{self.fandom_url}/wiki/Special:AllPages",
             f"{self.fandom_url}/wiki/Category:Characters",
-            f"{self.fandom_url}/wiki/Category:Individuals", # Harry Potter style
             f"{self.fandom_url}/wiki/Category:Character",
             f"{self.fandom_url}/wiki/Category:People",
-            f"{self.fandom_url}/wiki/Category:Heroes",
-            f"{self.fandom_url}/wiki/Category:Villains",
-            f"{self.fandom_url}/wiki/Category:Champions",  # Pour League of Legends
-            f"{self.fandom_url}/wiki/Category:Pokemon",     # Pour Pokemon
-            f"{self.fandom_url}/wiki/Category:Jedi",        # Pour Star Wars
+            f"{self.fandom_url}/wiki/Category:Individuals",
         ]
+        
+        available_slots = max(0, num_urls - len(base_urls))
+        random_categories = random.sample(categories, min(available_slots, len(categories)))
+        
+        random_urls = []
+        for category in random_categories:
+            clean_category = category.replace(' ', '_').replace('/', '_')
+            url = f"{self.fandom_url}/wiki/Category:{clean_category}"
+            random_urls.append(url)
+        
+        all_urls = base_urls + random_urls
+        
+        random.shuffle(all_urls)
+        
+        self.logger.info(f"Generated {len(all_urls)} category URLs:")
+        self.logger.info(f"  - {len(base_urls)} base URLs")
+        self.logger.info(f"  - {len(random_urls)} random URLs") 
+        self.logger.info(f"  - Target max_pages: {self.max_pages}")
+        
+        sample_urls = random_urls[:5] if len(random_urls) >= 5 else random_urls
+        for i, url in enumerate(sample_urls):
+            self.logger.info(f"  Example {i+1}: {url}")
+        
+        return all_urls
     
     def start_requests(self):
         """Démarre les requêtes initiales"""

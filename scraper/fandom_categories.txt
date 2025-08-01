@@ -1,0 +1,584 @@
+# Catégories génériques communes aux wikis Fandom
+Characters
+Character
+People
+Individuals
+Heroes
+Villains
+Protagonists
+Antagonists
+Main Characters
+Supporting Characters
+Minor Characters
+
+# Gaming
+Champions
+Playable Characters
+Non-Playable Characters
+NPCs
+Bosses
+Boss Characters
+Enemies
+Allies
+Players
+Units
+Classes
+Races
+Factions
+Guilds
+Teams
+Clans
+Organizations
+
+# Anime/Manga/Comics
+Anime Characters
+Manga Characters
+Comic Characters
+Superheroes
+Supervillains
+Mutants
+Ninjas
+Samurai
+Warriors
+Mages
+Wizards
+Sorcerers
+Knights
+Pirates
+Marines
+Shinobi
+Jinchuriki
+Akatsuki
+Straw Hat Pirates
+Soul Reapers
+Arrancar
+Hollow
+Quincy
+Fullbringer
+
+# Fantasy/RPG
+Elves
+Dwarves
+Orcs
+Dragons
+Demons
+Angels
+Gods
+Deities
+Immortals
+Mortals
+Humans
+Half-Elves
+Half-Orcs
+Halflings
+Gnomes
+Tieflings
+Dragonborn
+Barbarians
+Bards
+Clerics
+Druids
+Fighters
+Monks
+Paladins
+Rangers
+Rogues
+Sorcerers
+Warlocks
+
+# Sci-Fi
+Aliens
+Androids
+Robots
+Cyborgs
+AI
+Artificial Intelligence
+Space Marines
+Pilots
+Captains
+Engineers
+Scientists
+Explorers
+Colonists
+Rebels
+Empire
+Federation
+Alliance
+Republic
+Confederation
+
+# Horror
+Monsters
+Vampires
+Werewolves
+Zombies
+Ghosts
+Spirits
+Demons
+Devils
+Undead
+Creatures
+Beasts
+Aberrations
+Fiends
+Celestials
+
+# Modern/Contemporary
+Students
+Teachers
+Professors
+Doctors
+Nurses
+Police
+Detectives
+Agents
+Spies
+Soldiers
+Military
+Government
+Politicians
+Celebrities
+Athletes
+Musicians
+Artists
+Writers
+Directors
+
+# Age Groups
+Children
+Kids
+Teenagers
+Teens
+Adults
+Elderly
+Young Adults
+Middle-aged
+
+# Gender
+Male Characters
+Female Characters
+Non-binary Characters
+
+# Status
+Alive Characters
+Dead Characters
+Deceased Characters
+Missing Characters
+Unknown Status
+
+# Roles
+Leaders
+Rulers
+Kings
+Queens
+Princes
+Princesses
+Emperors
+Empresses
+Presidents
+Generals
+Commanders
+Captains
+Lieutenants
+Sergeants
+Soldiers
+Guards
+Assassins
+Thieves
+Merchants
+Traders
+Farmers
+Blacksmiths
+Craftsmen
+Artisans
+
+# Professions
+Doctors
+Lawyers
+Engineers
+Scientists
+Teachers
+Students
+Artists
+Musicians
+Writers
+Journalists
+Photographers
+Chefs
+Waiters
+Pilots
+Drivers
+Mechanics
+Electricians
+Plumbers
+Carpenters
+Builders
+
+# Personality Traits
+Brave Characters
+Cowardly Characters
+Smart Characters
+Intelligent Characters
+Wise Characters
+Foolish Characters
+Kind Characters
+Evil Characters
+Good Characters
+Neutral Characters
+Chaotic Characters
+Lawful Characters
+Loyal Characters
+Betrayers
+Traitors
+
+# Physical Traits
+Tall Characters
+Short Characters
+Strong Characters
+Weak Characters
+Fast Characters
+Slow Characters
+Beautiful Characters
+Ugly Characters
+Young Characters
+Old Characters
+
+# Powers/Abilities
+Magic Users
+Spellcasters
+Psychics
+Telepaths
+Telekinetics
+Shapeshifters
+Immortals
+Invulnerable Characters
+Super Strength
+Super Speed
+Flight
+Invisibility
+Time Travelers
+Dimension Travelers
+
+# Locations/Origins
+Earth Characters
+Space Characters
+Alien Characters
+Foreign Characters
+Local Characters
+Urban Characters
+Rural Characters
+Mountain Characters
+Ocean Characters
+Desert Characters
+Forest Characters
+Ice Characters
+Fire Characters
+Underground Characters
+
+# Pokemon Specific
+Pokemon
+Legendary Pokemon
+Mythical Pokemon
+Starter Pokemon
+Electric Pokemon
+Fire Pokemon
+Water Pokemon
+Grass Pokemon
+Normal Pokemon
+Fighting Pokemon
+Poison Pokemon
+Ground Pokemon
+Flying Pokemon
+Psychic Pokemon
+Bug Pokemon
+Rock Pokemon
+Ghost Pokemon
+Dragon Pokemon
+Dark Pokemon
+Steel Pokemon
+Fairy Pokemon
+Gym Leaders
+Elite Four
+Champions
+Team Rocket
+Team Plasma
+Team Galactic
+Team Magma
+Team Aqua
+Pokemon Trainers
+Pokemon Professors
+
+# League of Legends Specific
+Champions
+Assassins
+Fighters
+Mages
+Marksmen
+Supports
+Tanks
+Demacia
+Noxus
+Ionia
+Freljord
+Shurima
+Zaun
+Piltover
+Shadow Isles
+Targon
+Void
+Bilgewater
+
+# Star Wars Specific
+Jedi
+Sith
+Force Users
+Rebels
+Empire
+Republic
+Separatists
+Mandalorians
+Bounty Hunters
+Smugglers
+Pilots
+Droids
+Clones
+Stormtroopers
+Padawans
+Masters
+Knights
+Lords
+Darth
+Luke Skywalker
+Anakin Skywalker
+Obi-Wan Kenobi
+
+# Harry Potter Specific
+Wizards
+Witches
+Muggles
+Squibs
+Gryffindor
+Slytherin
+Hufflepuff
+Ravenclaw
+Students
+Professors
+Aurors
+Death Eaters
+Order of the Phoenix
+Ministry Workers
+Quidditch Players
+
+# Marvel/DC Specific
+Superheroes
+Supervillains
+Mutants
+X-Men
+Avengers
+Justice League
+SHIELD
+HYDRA
+Fantastic Four
+Inhumans
+Eternals
+Celestials
+Asgardians
+Atlanteans
+
+# One Piece Specific
+Pirates
+Marines
+Revolutionary Army
+World Government
+Shichibukai
+Yonko
+Supernovas
+Devil Fruit Users
+Haki Users
+Fishmen
+Minks
+Giants
+Dwarfs
+
+# Naruto Specific
+Ninjas
+Shinobi
+Hokage
+Kage
+Jinchuriki
+Akatsuki
+Hidden Villages
+Leaf Village
+Sand Village
+Mist Village
+Rock Village
+Cloud Village
+Uchiha
+Hyuga
+Uzumaki
+Senju
+
+# Dragon Ball Specific
+Saiyans
+Humans
+Namekians
+Androids
+Majins
+Kais
+Angels
+Gods of Destruction
+Z Fighters
+Red Ribbon Army
+Frieza Force
+
+# Attack on Titan Specific
+Titans
+Humans
+Eldians
+Marleyans
+Survey Corps
+Military Police
+Garrison
+Warriors
+Shifters
+Ackerman
+
+# Overwatch Specific
+Heroes
+Omnics
+Overwatch
+Talon
+Blackwatch
+Agents
+Scientists
+Soldiers
+
+# Game of Thrones Specific
+Starks
+Lannisters
+Targaryens
+Baratheons
+Tyrells
+Martells
+Greyjoys
+Tullys
+Arryns
+Lords
+Ladies
+Kings
+Queens
+Knights
+Maesters
+Septons
+Faceless Men
+Night's Watch
+Wildlings
+White Walkers
+
+# Misc Categories
+Royalty
+Nobility
+Commoners
+Criminals
+Outlaws
+Bandits
+Mercenaries
+Adventurers
+Explorers
+Scholars
+Monks
+Priests
+Clerics
+Shamans
+Druids
+Witches
+Warlocks
+Necromancers
+Paladins
+Rangers
+Rogues
+Bards
+Artificers
+Inventors
+Alchemists
+Healers
+Medics
+Gladiators
+Arena Fighters
+Tournament Participants
+Competitors
+Racers
+Pilots
+Mechanics
+Technicians
+Hackers
+Programmers
+Designers
+Architects
+Builders
+Constructors
+Destroyers
+Creators
+Innovators
+Pioneers
+Veterans
+Rookies
+Novices
+Experts
+Masters
+Legends
+Myths
+Folklore
+Historical Figures
+Modern Figures
+Future Characters
+Past Characters
+Present Characters
+Time Travelers
+Dimensional Travelers
+Multiverse Characters
+Alternate Reality
+Parallel Universe
+Mirror Universe
+Evil Twins
+Good Twins
+Clones
+Copies
+Duplicates
+Imposters
+Shapeshifters
+Doppelgangers
+Body Doubles
+Stunt Doubles
+Voice Actors
+Motion Capture
+Cosplayers
+Fan Characters
+Original Characters
+Canon Characters
+Non-Canon Characters
+Expanded Universe
+Extended Universe
+Spin-off Characters
+Crossover Characters
+Guest Characters
+Cameo Appearances
+Easter Eggs
+Hidden Characters
+Secret Characters
+Unlockable Characters
+DLC Characters
+Season Pass Characters
+Premium Characters
+Rare Characters
+Common Characters
+Uncommon Characters
+Epic Characters
+Legendary Characters
+Mythic Characters
+Limited Edition
+Exclusive Characters
+Event Characters
+Holiday Characters
+Seasonal Characters
+Anniversary Characters
