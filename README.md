@@ -12,14 +12,18 @@ Fandom Explorer est une solution complète permettant de :
 
 ## 🎥 Démonstration Vidéo
 
-Découvrez le fonctionnement complet de l'application dans cette vidéo de présentation :
+Découvrez le fonctionnement complet de l'application dans cette démonstration :
 
+### 📱 Aperçu Rapide (GIF)
+![Démonstration Fandom Explorer](scrapper.gif)
+
+### 🎬 Vidéo Complète
 <video width="100%" controls>
   <source src="scrapper.mp4" type="video/mp4">
   Votre navigateur ne supporte pas la balise vidéo.
 </video>
 
-*La vidéo présente le scraping en temps réel, l'interface utilisateur et les fonctionnalités de comparaison.*
+*La démonstration présente le scraping en temps réel, l'interface utilisateur et les fonctionnalités de comparaison.*
 
 **Alternative** : Si la vidéo ne s'affiche pas correctement, vous pouvez la télécharger directement : [scrapper.mp4](./scrapper.mp4)
 
